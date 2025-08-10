@@ -8,7 +8,12 @@ dotenv.config();
 const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-app.use(cors());
+app.use(cors({
+    origin: ["https://ootacuisine.com"], // الدومين بتاعك
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+  }));
+  
 app.use(bodyParser.json());
 
 app.post("/send-email", async (req, res) => {
@@ -35,7 +40,4 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}`);
-});
+export default app;
