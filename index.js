@@ -9,7 +9,7 @@ const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors({
-    origin: ["https://ootacuisine.com"], // الدومين بتاعك
+    origin: ["https://ootacuisine.com","http://localhost:5173"], // الدومين بتاعك
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"]
   }));
