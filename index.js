@@ -9,10 +9,10 @@ const app = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 app.use(cors({
-    origin: ["https://ootacuisine.com","http://localhost:5173"], // الدومين بتاعك
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"]
-  }));
+  origin: "https://ootacuisine.com",
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Accept"]
+}));
   
 app.use(bodyParser.json());
 
@@ -22,7 +22,7 @@ app.post("/send-email", async (req, res) => {
   try {
     const data = await resend.emails.send({
     from: 'Oota <onboarding@resend.dev>', // لازم يكون دومين موثق في Resend
-    to: 'romasameh580@gmail.com', // إيميل صاحب الموقع
+    to: 'ootacuisine1@outlook.com', // إيميل صاحب الموقع
       subject: `رسالة جديدة من ${name}`,
       html: `
         <p><strong>الاسم:</strong> ${name}</p>
