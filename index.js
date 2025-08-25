@@ -22,7 +22,7 @@ app.post("/send-email", async (req, res) => {
   try {
     const data = await resend.emails.send({
     from: 'Oota <onboarding@resend.dev>', // لازم يكون دومين موثق في Resend
-    to: 'ootacuisine1@outlook.com', // إيميل صاحب الموقع
+    to: 'kemetkitchentn@gmail.com', // إيميل صاحب الموقع
       subject: `رسالة جديدة من ${name}`,
       html: `
         <p><strong>الاسم:</strong> ${name}</p>
